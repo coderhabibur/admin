@@ -1,0 +1,107 @@
+body{
+  background-color:#d9d9d9;
+  font-family:'Segoe UI';
+  justify-content:center;
+  align-items:center;
+  display:flex;
+  min-height:90vh;
+}
+#container{
+  background-color:#131313;
+  height:420px;
+  width:350px;
+  margin-top:0;
+  border-radius:20px;
+  align-items:center;
+  justify-content:center;
+  position:fixed;
+  text-align:center;
+}
+#main-title {
+  color: white;
+  font-weight: lighter;
+  font-size: 30px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  font-weight: 500;
+}
+#email{
+  margin-top:30px;
+  display:inline-block;
+  background-color:#131313;
+  border:2px solid #00a508;
+  border-radius:50px;
+  width:190px;
+  padding:16px;
+  color:white;
+  outline:none;
+  text-align:center;
+  transition:width ease .3s;
+}
+#email::placeholder{
+  text-align:center;
+  font-family:'Segoe UI';
+  font-size:14px;
+}
+#email:hover{
+  width:250px;
+  box-shadow:0px 0px 10px #0071ce;
+  border-color:#0071ce;
+}
+#email:focus{
+  width:250px;
+  box-shadow:0px 0px 10px #0071ce;
+  border-color:#0071ce;
+}
+#password{
+  margin-top:30px;
+  display:inline-block;
+  background-color:#131313;
+  border:2px solid #00a508;
+  border-radius:50px;
+  width:190px;
+  padding:16px;
+  color:white;
+  outline:none;
+  text-align:center;
+  transition:width ease .3s;
+}
+#password::placeholder{
+  text-align:center;
+  font-family:'Segoe UI';
+  font-size:14px;
+}
+#password:hover{
+  width:250px;
+  box-shadow:0px 0px 10px #0071ce;
+  border-color:#0071ce;
+}
+#password:focus{
+  width:250px;
+  box-shadow:0px 0px 10px #0071ce;
+  border-color:#0071ce;
+}
+#submit{
+  margin-top:30px;
+  padding:8px;
+  width:150px;
+  background-color:#131313;
+  outline:none;
+  border:2px solid #00a508;
+  color:#00a508;
+  font-family:'Segoe UI';
+  font-size:16px;
+  border-radius:50px;
+  display:inline-block;
+  }
+#submit:hover{
+  border-color:#0071ce;
+  box-shadow:0px 0px 10px #0071ce;
+  color:#0071ce;
+}
+#submit:active{
+  box-shadow:0px 0px 30px #0071ce;
+  color:#0099ce;
+  text-shadow:0px 0px 10px #0071ce;
+}
