@@ -26,7 +26,8 @@
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
 	    }else{
-	    	 $insert_data = "INSERT INTO data WHERE(name,username,email,gender,address,registration_date,password) VALUES('$name','$username','$email','male','madilahat','$date_pickup','$password')";
+	    	 $insert_data = "INSERT INTO data(name,username,email,gender,address,registration_date,password) VALUES('$name','$username','$email','male','madilahat','$date_pickup','$password')";
+	    	 $insert_query = $conn->query($insert_data);
 	    }
 	}
 
