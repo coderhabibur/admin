@@ -7,10 +7,13 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
+		$date_pickup = date("Y-m-d h:i:sa");
+
 		// username exist query
 		$sql    = "SELECT * FROM data WHERE username='$username'";
 		$user_query  = $conn->query($sql);
 		$data   = mysqli_fetch_assoc($user_query);
+
 
 	    if(mysqli_num_rows($user_query) != 0) {
            $username_error = 'Username not available !';
@@ -22,13 +25,12 @@
 	      $email_error = 'Email empty.';
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
-	    }else{	              
-	        // header('location:sigin.php');
+	    }else{
+	    	 $insert_data = "INSERT INTO data WHERE(name,username,email,gender,address,registration_date,password) VALUES('$name','$username','$email','male','madilahat','$date_pickup','$password')";
 	    }
 	}
 
  ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
