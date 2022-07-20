@@ -1,3 +1,38 @@
+<?php 
+	require_once('connection.php');
+
+	if(isset($_POST['submit'])) {
+		$name = $_POST['name'];
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+
+	    if(empty($name)) {
+	      $name_error = 'name empty.';
+	    }elseif(empty($username)) {
+	      $username_error = 'Username empty.';
+	    }elseif(empty($email)) {
+	      $email_error = 'Email empty.';
+	    }elseif(empty($password)) {
+	      $password_error = 'Password empty.';
+	    }else{
+	      $sql    = "SELECT * FROM data WHERE username='$username'";
+	      $query  = $conn->query($sql);
+	      $data   = mysqli_fetch_assoc($query);
+
+	      if(mysqli_num_rows($query) == 0) {
+	                $username_error = 'username wrong !';
+	            }else {
+	              
+	              header('location:sigin.php');
+	        }
+	    }
+	}
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,25 +69,45 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
+									<form method="POST">
 										<div class="mb-3">
 											<label class="form-label">Name</label>
 											<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+											<p class="text-center">
+						                        <?php if(isset($name_error)) {
+						                        echo $name_error;
+						                      } ?>
+						                    </p>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Username</label>
 											<input class="form-control form-control-lg" type="text" name="username" placeholder="Enter your Username" />
+											<p class="text-center">
+						                        <?php if(isset($username_error)) {
+						                        echo $username_error;
+						                      } ?>
+						                    </p>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<p class="text-center">
+						                        <?php if(isset($email_error)) {
+						                        echo $email_error;
+						                      } ?>
+						                    </p>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
+											<p class="text-center">
+						                        <?php if(isset($password_error)) {
+						                        echo $password_error;
+						                      } ?>
+						                    </p>
 										</div>
 										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+											<button type="submit" name="submit" class="btn btn-lg btn-primary">Sign up</button>
 											<p class="mt-3">Already have an account ? <a href="signin.php">Log In</a></p>
 										</div>
 									</form>
