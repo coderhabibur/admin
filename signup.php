@@ -7,26 +7,23 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
+		// username exist query
+		$sql    = "SELECT * FROM data WHERE username='$username'";
+		$user_query  = $conn->query($sql);
+		$data   = mysqli_fetch_assoc($user_query);
 
-	    if(empty($name)) {
-	      $name_error = 'name empty.';
+	    if(mysqli_num_rows($user_query) != 0) {
+           $username_error = 'Username not available !';
+        }elseif(empty($name)) {
+	      $name_error = 'Name empty.';
 	    }elseif(empty($username)) {
 	      $username_error = 'Username empty.';
 	    }elseif(empty($email)) {
 	      $email_error = 'Email empty.';
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
-	    }else{
-	      $sql    = "SELECT * FROM data WHERE username='$username'";
-	      $query  = $conn->query($sql);
-	      $data   = mysqli_fetch_assoc($query);
-
-	      if(mysqli_num_rows($query) == 0) {
-	                $username_error = 'username wrong !';
-	            }else {
-	              
-	              header('location:sigin.php');
-	        }
+	    }else{	              
+	        // header('location:sigin.php');
 	    }
 	}
 
