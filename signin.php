@@ -99,8 +99,8 @@
                                 echo $error;
                             };
                         ?>
-											<!-- <a href="index.html" class="btn btn-lg btn-primary">Sign in</a> -->
 											<button type="submit" name="submit" class="btn btn-lg btn-primary">Sign in</button>
+											<p class="mt-3">Don't have an account ? <a href="signup.php">Sign Up here</a></p>
 										</div>
 									</form>
 								</div>
