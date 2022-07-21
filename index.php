@@ -218,7 +218,7 @@
 											<div class="col-10 ps-2">
 												<div class="text-dark">William Harris</div>
 												<div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
-												<div class="text-muted small mt-1">2h ago</div>
+												<div class="text-muted  small mt-1">2h ago</div>
 											</div>
 										</div>
 									</a>

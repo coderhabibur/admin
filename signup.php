@@ -15,19 +15,20 @@
 		$data   = mysqli_fetch_assoc($user_query);
 
 
-	    if(mysqli_num_rows($user_query) != 0) {
-           $username_error = 'Username not available !';
-        }elseif(empty($name)) {
+	    if(empty($name)) {
 	      $name_error = 'Name empty.';
 	    }elseif(empty($username)) {
 	      $username_error = 'Username empty.';
-	    }elseif(empty($email)) {
+	    }elseif(mysqli_num_rows($user_query) != 0) {
+           $username_error = 'Username not available !';
+        }	    elseif(empty($email)) {
 	      $email_error = 'Email empty.';
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
 	    }else{
 	    	 $insert_data = "INSERT INTO data(name,username,email,gender,address,registration_date,password) VALUES('$name','$username','$email','male','madilahat','$date_pickup','$password')";
 	    	 $insert_query = $conn->query($insert_data);
+	    	 header('location:signin.php');
 	    }
 	}
 
