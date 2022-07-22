@@ -105,6 +105,7 @@
 						                        <?php if(isset($password_error)) {
 						                        echo $password_error;
 						                      } ?>
+						                      
 						                    </p>
 										</div>
 										<div class="text-center mt-3">
