@@ -14,6 +14,8 @@
 		$user_query  = $conn->query($sql);
 		$data   = mysqli_fetch_assoc($user_query);
 
+		// Count Email
+
 
 	    if(empty($name)) {
 	      $name_error = 'Name empty.';
@@ -21,8 +23,12 @@
 	      $username_error = 'Username empty.';
 	    }elseif(mysqli_num_rows($user_query) != 0) {
            $username_error = 'Username not available !';
-        }	    elseif(empty($email)) {
+        }elseif(empty($email)) {
 	      $email_error = 'Email empty.';
+	    }elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+	    	$email_error = 'Email Not Valid.';
+	    }elseif($data['email'] != 1) {
+	    	$email_error = 'Email Used';
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
 	    }else{
@@ -105,7 +111,7 @@
 						                        <?php if(isset($password_error)) {
 						                        echo $password_error;
 						                      } ?>
-						                      
+
 						                    </p>
 										</div>
 										<div class="text-center mt-3">
