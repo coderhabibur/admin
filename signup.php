@@ -16,7 +16,6 @@
 
 		// Count Email
 
-
 	    if(empty($name)) {
 	      $name_error = 'Name empty.';
 	    }elseif(empty($username)) {
@@ -25,10 +24,8 @@
            $username_error = 'Username not available !';
         }elseif(empty($email)) {
 	      $email_error = 'Email empty.';
-	    }elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-	    	$email_error = 'Email Not Valid.';
 	    }elseif($data['email'] != 1) {
-	    	$email_error = 'Email Used';
+	      $email_error = 'Email Used';
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
 	    }else{
