@@ -10,12 +10,11 @@
 		$date_pickup = date("Y-m-d h:i:sa");
 
 		// username exist query
-		$sql    = "SELECT * FROM data WHERE username='$username'";
-		$user_query  = $conn->query($sql);
-		$data   = mysqli_fetch_assoc($user_query);
+		$sql 		= "SELECT * FROM data WHERE username='$username'";
+		$user_query = $conn->query($sql);
+		$data   	= mysqli_fetch_assoc($user_query);
 
 		// Count Email
-
 	    if(empty($name)) {
 	      $name_error = 'Name empty.';
 	    }elseif(empty($username)) {
@@ -24,14 +23,14 @@
            $username_error = 'Username not available !';
         }elseif(empty($email)) {
 	      $email_error = 'Email empty.';
-	    }elseif($data['email'] != 1) {
+	    }elseif($data['email'] == $email) {
 	      $email_error = 'Email Used';
 	    }elseif(empty($password)) {
 	      $password_error = 'Password empty.';
 	    }else{
 	    	 $insert_data = "INSERT INTO data(name,username,email,gender,address,registration_date,password) VALUES('$name','$username','$email','male','madilahat','$date_pickup','$password')";
 	    	 $insert_query = $conn->query($insert_data);
-	    	 header('location:signin.php');
+	    	 // header('location:signin.php');
 	    }
 	}
 
